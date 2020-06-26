@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.yonyou.uap.ump.malaunch">
+<booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.yonyou.um.web.UMWebContext"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="MobileDemo"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-DUM_HOME=${FIELD_UM_HOME}\MOB\ump_server\hotwebs\umserver -DMA_HOME=${FIELD_UM_HOME}\MOB\ump_server -DMA_HOST=192.168.1.225 -DMA_PORT=9090 -DCONTEXT_PATH=umserver -DLOGS_PATH=${FIELD_UM_HOME}\MOB\ump_server\log "/>
+<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${FIELD_UM_HOME}\MOB\ump_server"/>
+</launchConfiguration>

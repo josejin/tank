@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="button" value="点我下！" onclick="alse();">
+</body>
+<script type="text/javascript">
+	function alse(){
+		alert(" 点到我了！！");
+	}
+
+</script>
+</html>

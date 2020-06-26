@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.yonyou.uap.ump.malaunch">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/standard_maserverDemo"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.yonyou.um.web.UMWebContext"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="standard_maserverDemo"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-DUM_HOME=${FIELD_UM_HOME}\MOB\ump_server\hotwebs\umserver -DMA_HOME=${FIELD_UM_HOME}\MOB\ump_server -DMA_HOST=192.168.199.127 -DMA_PORT=9090 -DCONTEXT_PATH=umserver -DLOGS_PATH=${FIELD_UM_HOME}\MOB\ump_server\log"/>
+<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${FIELD_UM_HOME}\MOB\ump_server"/>
+</launchConfiguration>

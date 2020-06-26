@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="C:\Program Files (x86)\Java\jdk1.7.0_67" version="1.7.0_67">
+<bootpath>
+<entry path="C:\Program Files (x86)\Java\jdk1.7.0_67\jre\lib\resources.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk1.7.0_67\jre\lib\rt.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk1.7.0_67\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk1.7.0_67\jre\lib\jsse.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk1.7.0_67\jre\lib\jce.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk1.7.0_67\jre\lib\charsets.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk1.7.0_67\jre\lib\jfr.jar"/>
+<entry path="C:\Program Files (x86)\Java\jdk1.7.0_67\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Program Files (x86)\Java\jdk1.7.0_67\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Program Files (x86)\Java\jdk1.7.0_67\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="E:\JZ\server\JavaJDK\jdk1.6.0_21" version="1.6.0_21">
+<bootpath>
+<entry path="E:\JZ\server\JavaJDK\jdk1.6.0_21\jre\lib\resources.jar"/>
+<entry path="E:\JZ\server\JavaJDK\jdk1.6.0_21\jre\lib\rt.jar"/>
+<entry path="E:\JZ\server\JavaJDK\jdk1.6.0_21\jre\lib\sunrsasign.jar"/>
+<entry path="E:\JZ\server\JavaJDK\jdk1.6.0_21\jre\lib\jsse.jar"/>
+<entry path="E:\JZ\server\JavaJDK\jdk1.6.0_21\jre\lib\jce.jar"/>
+<entry path="E:\JZ\server\JavaJDK\jdk1.6.0_21\jre\lib\charsets.jar"/>
+<entry path="E:\JZ\server\JavaJDK\jdk1.6.0_21\jre\classes"/>
+<entry path="E:\program file\bin\java_shared\classes"/>
+<entry path="E:\program file\bin\java_shared\classes\jasmine.jar"/>
+</bootpath>
+<extensionDirs>
+<entry path="E:\JZ\server\JavaJDK\jdk1.6.0_21\jre\lib\ext"/>
+<entry path="C:\windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="E:\JZ\server\JavaJDK\jdk1.6.0_21\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

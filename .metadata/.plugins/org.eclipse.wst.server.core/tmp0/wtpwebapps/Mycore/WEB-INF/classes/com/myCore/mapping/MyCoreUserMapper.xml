@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myCore.dao.MyCoreUserMapper" >
+  <resultMap id="BaseResultMap" type="com.myCore.model.MyCoreUser" >
+    <id column="userId" property="userid" jdbcType="VARCHAR" />
+    <result column="userName" property="username" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="vaild" property="vaild" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    userId, userName, email, birthday, vaild
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mycore_user
+    where userId = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from mycore_user
+    where userId = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.myCore.model.MyCoreUser" >
+    insert into mycore_user (userId, userName, email, 
+      birthday, vaild)
+    values (#{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=DATE}, #{vaild,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myCore.model.MyCoreUser" >
+    insert into mycore_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="username != null" >
+        userName,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="vaild != null" >
+        vaild,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="vaild != null" >
+        #{vaild,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myCore.model.MyCoreUser" >
+    update mycore_user
+    <set >
+      <if test="username != null" >
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="vaild != null" >
+        vaild = #{vaild,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userId = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myCore.model.MyCoreUser" >
+    update mycore_user
+    set userName = #{username,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      vaild = #{vaild,jdbcType=VARCHAR}
+    where userId = #{userid,jdbcType=VARCHAR}
+  </update>
+</mapper>

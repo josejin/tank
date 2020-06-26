@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="eJose-app"/>
+<aop-project name="eJose-utils"/>
+<aop-project name="eJose-model"/>
+<aop-project name="eJose-api"/>
+</aop-reference-model>

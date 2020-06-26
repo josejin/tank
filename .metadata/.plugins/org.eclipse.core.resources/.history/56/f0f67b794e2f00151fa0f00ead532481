@@ -1,0 +1,19 @@
+ #New_window1 {
+halign:center;
+height:fill;
+layout:vbox;
+width:fill;
+valign:TOP;
+}
+ #viewPage0 {
+halign:center;
+height:fill;
+layout:vbox;
+background:#F5F5F5;
+width:fill;
+valign:TOP;
+}
+ #imageflipper0 {
+height:180;
+width:fill;
+}

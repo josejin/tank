@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window xmlns:web="http://www.yonyou.com/uapmobile/dsl" id="New_window1" controller="New_window1Controller" namespace="com.cn.mta">
+    <import ref="New_window1.css" type="css"/>
+    <link type="text/css" href="sys/theme.css"/>
+    <div id="viewPage0">
+        <imageflipper titleheight="20" id="imageflipper0" descheight="0" interval="2000" onload="this.imageflipper0_onload()" flipperbtnvisible="false" isloop="true" scaletype="fitcenter" autoflip="true">
+            <imageflipperitem id="imageflipper0_0" title="标题" description="" src="QQ图片20150707225645.jpg"/>
+        </imageflipper>
+        <div id="panel0" onload="this.panel0_onload()">
+            <label id="label0" bindfield="id" onclick="this.label0_onclick()">label</label>
+            <label id="label1" bindfield="name" onclick="this.label1_onclick()">label</label>
+        </div>
+    </div> 
+</window>

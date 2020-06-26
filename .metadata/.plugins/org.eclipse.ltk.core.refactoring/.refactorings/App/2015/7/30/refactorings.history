@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="将资源“App/App/UI/windows/New_window1.dsl”重命名为“One.dsl”" description="重命名资源“New_window1.dsl”" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="App/UI/windows/New_window1.dsl" name="One.dsl" stamp="1437533978062" updateReferences="true"/>&#x0A;<refactoring comment="将资源“App/App/UI/windows/Add_window2.dsl”重命名为“AddPage.dsl”" description="重命名资源“Add_window2.dsl”" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="App/UI/windows/Add_window2.dsl" name="AddPage.dsl" stamp="1437535044063" updateReferences="true"/>
+</session>

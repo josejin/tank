@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1507454522697_3" label="eJose" name="eJose">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/eJose" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/eJose-app" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/eJose-utils" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/eJose-model" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/eJose-api" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1441790867338_0" label="窗口工作集" name="Aggregate for window 1441790867336"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1467521440944_1" label="Window Working Set" name="Aggregate for window 1467521440944"/>
+</workingSetManager>

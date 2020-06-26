@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ecargo-base-info.properties&apos; to &apos;springcloud/src/main/resources&apos;&#x0D;&#x0A;- Original project: &apos;Mycore&apos;&#x0D;&#x0A;- Destination element: &apos;springcloud/src/main/resources&apos;&#x0D;&#x0A;- Original element: &apos;ecargo-base-info.properties&apos;" description="Copy file" destination="=springcloud/src\/main\/resources" element1="src/main/resources/ecargo-base-info.properties" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1501422413649" units="0" version="1.0"/>
+</session>

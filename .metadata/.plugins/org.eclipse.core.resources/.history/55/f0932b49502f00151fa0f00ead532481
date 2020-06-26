@@ -1,0 +1,52 @@
+ #New_window1 {
+halign:center;
+height:fill;
+layout:vbox;
+width:fill;
+valign:TOP;
+}
+ #viewPage0 {
+halign:center;
+height:fill;
+layout:vbox;
+background:#F5F5F5;
+width:fill;
+valign:TOP;
+}
+ #imageflipper0 {
+height:180;
+width:fill;
+}
+ #panel0 {
+halign:CENTER;
+height:50;
+layout:relative;
+width:fill;
+valign:CENTER;
+}
+ #label0 {
+halign:center;
+height:wrap;
+widthWrap:34.0;
+color:#000000;
+heightWrap:20.0;
+font-size:14;
+width:wrap;
+font-family:default;
+left:20.0;
+valign:center;
+top:10.0;
+}
+ #label1 {
+halign:center;
+height:wrap;
+widthWrap:32.0;
+color:#000000;
+heightWrap:14.0;
+font-size:14;
+width:wrap;
+left:60.0;
+font-family:default;
+valign:center;
+top:10.0;
+}

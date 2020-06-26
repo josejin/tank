@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window xmlns:web="http://www.yonyou.com/uapmobile/dsl" id="New_window1" controller="New_window1Controller" namespace="com.cn.mta">
+    <import ref="New_window1.css" type="css"/>
+    <link type="text/css" href="sys/theme.css"/>
+    <div id="viewPage0">
+        <div id="panel0">
+            <image id="image0" onclick="this.image0_onclick()" scaletype="fitcenter" src="picture"/>
+        </div>
+    </div> 
+</window>

@@ -1,0 +1,28 @@
+ #New_window1 {
+halign:center;
+height:fill;
+layout:vbox;
+width:fill;
+valign:TOP;
+}
+ #viewPage0 {
+halign:center;
+height:fill;
+layout:vbox;
+background:#F5F5F5;
+width:fill;
+valign:TOP;
+}
+ #panel0 {
+halign:CENTER;
+height:110.0;
+layout:relative;
+width:230.0;
+valign:CENTER;
+}
+ #image0 {
+height:44;
+width:44;
+left:30.0;
+top:30.0;
+}

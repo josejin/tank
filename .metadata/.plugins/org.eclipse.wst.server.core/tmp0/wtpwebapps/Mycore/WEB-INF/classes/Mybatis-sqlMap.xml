@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<!--定义ibatis自身应用信息 -->
+	<settings cacheModelsEnabled="true" enhancementEnabled="true"
+		lazyLoadingEnabled="false" maxSessions="64" maxTransactions="8"
+		maxRequests="128" useStatementNamespaces="true" />
+	<!--配置映射文件 -->
+	<sqlMap resource="biz/ibatis-ecargo-common.xml" />
+</sqlMapConfig>

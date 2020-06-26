@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window xmlns:web="http://www.yonyou.com/uapmobile/dsl" id="New_window1" controller="New_window1Controller" namespace="com.cn.mta">
+    <import ref="New_window1.css" type="css"/>
+    <link type="text/css" href="sys/theme.css"/>
+    <div id="viewPage0">
+        <navigatorbar id="navigatorbar0" title="标题" class="navigatorbarclass">
+            <input id="button0" value="返回" class="ngbbuttonclass" type="button"/>
+            <label id="label0"/>
+            <input id="button1" value="按钮" class="ngbbuttonclass" type="button"/>
+        </navigatorbar>
+        <imageflipper titleheight="20" id="imageflipper0" descheight="0" interval="2000" flipperbtnvisible="false" isloop="true" scaletype="fitcenter" autoflip="true">
+            <imageflipperitem id="imageflipper0_0" title="标题" description="" src="app.png"/>
+            <imageflipperitem id="imageflipper0_1" title="标题" description="" src="app.png"/>
+            <imageflipperitem id="imageflipper0_2" title="标题" description="" src="launch.png"/>
+        </imageflipper>
+        <listView id="listviewdefine0" bindfield="list" onload="this.listviewdefine0_onload()">
+            <div id="panel0">
+                <label id="label3" onclick="this.label3_onclick()">姓名</label>
+                <label id="label1" bindfield="name">label</label>
+                <label id="label2">代码</label>
+                <label id="label4" bindfield="id">label</label>
+            </div>
+        </listView>
+    </div> 
+</window>

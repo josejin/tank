@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="将资源“MtaApp/MtaApp/UI/themes/ios7/designer/新闻APP北京_5.png”重命名为“lunbo1.png”" description="重命名资源“新闻APP北京_5.png”" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="MtaApp/UI/themes/ios7/designer/新闻APP北京_5.png" name="lunbo1.png" stamp="1437568583596" updateReferences="true"/>&#x0A;<refactoring comment="将资源“MtaApp/MtaApp/UI/themes/ios7/designer/新闻APP北京_8.png”重命名为“lunbo2.png”" description="重命名资源“新闻APP北京_8.png”" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="MtaApp/UI/themes/ios7/designer/新闻APP北京_8.png" name="lunbo2.png" stamp="1437568596061" updateReferences="true"/>
+</session>
