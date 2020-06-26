@@ -14,16 +14,25 @@ public class Bullte {
     //每次运行的步长
     private final int step = 5;
 
+    private TankFrame tankFrame;
+    /**
+     * 子弹是否存活
+     */
+    private boolean isLove = true ;
 
-    public Bullte(int x,int y,Dir dir){
+    public Bullte(int x,int y,Dir dir,TankFrame tankFrame){
         this.x= x;
         this.y=y;
         this.dir =dir;
+        this.tankFrame = tankFrame;
     }
 
 
 
     public void paint(Graphics g){
+        if (!this.isLove){
+            this.tankFrame.bullteList.remove(this);
+        }
         System.out.println(" println Bullte paint....");
         Color c = g.getColor();
         g.setColor(Color.red);
@@ -45,6 +54,11 @@ public class Bullte {
                 y+=step;break;
             default:
         }
+
+        //移除子弹
+        if(x<0 || y<0 || x>tankFrame.getFrameWidth() || y > tankFrame.getFrameHeight()){
+            this.isLove = false;
+        }
     }
 
     public Dir getDir() {
@@ -54,5 +68,6 @@ public class Bullte {
     public void setDir(Dir dir) {
         this.dir = dir;
     }
+
 
 }

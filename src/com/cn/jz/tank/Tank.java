@@ -77,7 +77,6 @@ public class Tank {
      * 坦克设计
      */
     public void fire(){
-        tankFrame.bullte = new Bullte(this.x,this.y,this.dir);
-
+        tankFrame.bullteList.add(new Bullte(this.x,this.y,this.dir,this.tankFrame));
     }
 }

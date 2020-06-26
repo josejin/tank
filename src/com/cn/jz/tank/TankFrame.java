@@ -5,21 +5,24 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TankFrame extends Frame {
 
     Tank tank =new Tank(200,200,Dir.DOWN,this);
 
-    Bullte  bullte = new Bullte(50,50,Dir.DOWN);
-  // Bullte bullte = tank.fire();
+    //Bullte  bullte = new Bullte(50,50,Dir.DOWN);
+
+    List<Bullte> bullteList = new ArrayList<>();
 
     private boolean isFire = false;
 
-    private final int FrameWidth = 700,FrameHeight = 500;
+    private final int frameWidth = 700,frameHeight = 500;
 
     public TankFrame(){
         this.setResizable(false);
-        this.setSize(FrameWidth,FrameHeight);
+        this.setSize(frameWidth,frameHeight);
         this.setVisible(true);
         this.setTitle("坦克大战");
         //监听键盘小心
@@ -43,12 +46,12 @@ public class TankFrame extends Frame {
     public void update(Graphics g) {
         System.out.println("update...");
        if (offScreenImage == null){
-           offScreenImage = this.createImage(FrameWidth,FrameHeight);
+           offScreenImage = this.createImage(frameWidth,frameHeight);
        }
            Graphics offScreen = offScreenImage.getGraphics();
            Color color = offScreen.getColor();
            offScreen.setColor(Color.BLACK);
-           offScreen.fillRect(0,0,FrameWidth,FrameHeight);
+           offScreen.fillRect(0,0,frameWidth,frameHeight);
            offScreen.setColor(color);
            paint(offScreen);
            g.drawImage(offScreenImage,0,0,null);
@@ -61,9 +64,18 @@ public class TankFrame extends Frame {
      */
     @Override
     public void paint(Graphics g){
+        Color color = g.getColor();
+        g.setColor(Color.WHITE);
+        g.drawString("子弹的个数："+ bullteList.size(),10,100);
+        g.setColor(color);
+
         tank.paint(g);
+
         System.out.println(" println isFire...." +isFire);
-        bullte.paint(g);
+        for (int i=0; i< bullteList.size(); i++ ){
+            bullteList.get(i).paint(g);
+        }
+
     }
 
     /**
@@ -163,4 +175,12 @@ public class TankFrame extends Frame {
         }
     }
 
+
+    public int getFrameWidth() {
+        return frameWidth;
+    }
+
+    public int getFrameHeight() {
+        return frameHeight;
+    }
 }
