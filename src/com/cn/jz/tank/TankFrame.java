@@ -8,9 +8,12 @@ import java.awt.event.WindowEvent;
 
 public class TankFrame extends Frame {
 
-    Tank tank =new Tank(200,200,Dir.DOWN);
+    Tank tank =new Tank(200,200,Dir.DOWN,this);
 
-    Bullte bullte = new Bullte(50,50,Dir.DOWN);
+    Bullte  bullte = new Bullte(50,50,Dir.DOWN);
+  // Bullte bullte = tank.fire();
+
+    private boolean isFire = false;
 
     private final int FrameWidth = 700,FrameHeight = 500;
 
@@ -59,6 +62,7 @@ public class TankFrame extends Frame {
     @Override
     public void paint(Graphics g){
         tank.paint(g);
+        System.out.println(" println isFire...." +isFire);
         bullte.paint(g);
     }
 
@@ -97,6 +101,9 @@ public class TankFrame extends Frame {
                 case KeyEvent.VK_DOWN:
                     vk=true;
                     break;
+                case KeyEvent.VK_CONTROL:
+                    isFire = false;
+                    break;
                 default:
             }
             this.setMainTankDir();
@@ -122,6 +129,10 @@ public class TankFrame extends Frame {
                     break;
                 case KeyEvent.VK_DOWN:
                     vk=false;
+                    break;
+                case KeyEvent.VK_CONTROL:
+                    isFire = true;
+                    tank.fire();
                     break;
                 default:
             }

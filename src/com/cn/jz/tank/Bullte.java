@@ -46,6 +46,7 @@ public class Bullte {
             default:
         }
     }
+
     public Dir getDir() {
         return dir;
     }

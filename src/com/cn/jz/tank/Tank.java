@@ -16,11 +16,14 @@ public class Tank {
 
     private boolean move = false;
 
+    private TankFrame tankFrame;
 
-    public Tank(int x,int y,Dir dir){
+
+    public Tank(int x,int y,Dir dir,TankFrame tankFrame){
         this.x= x;
         this.y=y;
         this.dir=dir;
+        this.tankFrame = tankFrame;
     }
 
 
@@ -68,5 +71,13 @@ public class Tank {
 
     public void setMove(boolean move) {
         this.move = move;
+    }
+
+    /**
+     * 坦克设计
+     */
+    public void fire(){
+        tankFrame.bullte = new Bullte(this.x,this.y,this.dir);
+
     }
 }
