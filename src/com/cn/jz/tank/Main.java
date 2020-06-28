@@ -7,7 +7,8 @@ import java.awt.event.WindowEvent;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-        TankFrame a = new TankFrame();
+
+        final TankFrame a = new TankFrame();
         /**
          * 主线程每50ms刷新界面
          */
@@ -15,6 +16,23 @@ public class Main {
             Thread.sleep(50);
             //重新刷新界面,就多次使页面调用paint方法使坦克移动
             a.repaint();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try{
+                        int i=0;
+                        while (i<10) {
+                            Thread.sleep(50);
+                            a.creatEnemyTank();
+                            i++;
+                        }
+                    }catch (InterruptedException e){
+
+                    }
+
+                }
+            }).start();
+
         }
 
         //子线程

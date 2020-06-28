@@ -1,6 +1,11 @@
 package com.cn.jz.tank;
 
+import test.ImagesTest;
+
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
  * 坦克类
@@ -19,6 +24,8 @@ public class Tank {
     private TankFrame tankFrame;
 
 
+
+
     public Tank(int x,int y,Dir dir,TankFrame tankFrame){
         this.x= x;
         this.y=y;
@@ -30,10 +37,26 @@ public class Tank {
 
     public void paint(Graphics g){
         System.out.println(" println paint....");
-        Color color = g.getColor();
+        /*Color color = g.getColor();
         g.setColor(Color.green);
         g.fillRect(x,y,50,50);
-        g.setColor(color);
+        g.setColor(color);*/
+        switch (dir){
+            case LEFT:
+                g.drawImage(ResourceMgr.tankL,x,y,null);
+                break;
+            case RIGHT:
+                g.drawImage(ResourceMgr.tankR,x,y,null);
+                break;
+            case UP:
+                g.drawImage(ResourceMgr.tankU,x,y,null);
+                break;
+            case DOWN:
+                g.drawImage(ResourceMgr.tankD,x,y,null);
+                break;
+            default:
+        }
+
         //如果弹起按钮坦克不移动
         if(!move){
            return;

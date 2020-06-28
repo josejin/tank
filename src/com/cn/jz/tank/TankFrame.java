@@ -7,14 +7,21 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+/**
+ * 战场类型
+ */
 public class TankFrame extends Frame {
 
     Tank tank =new Tank(200,200,Dir.DOWN,this);
 
     //Bullte  bullte = new Bullte(50,50,Dir.DOWN);
-
+    //子弹类型
     List<Bullte> bullteList = new ArrayList<>();
+
+    //敌军坦克类
+   volatile   List<EnemyTank> enemyTankList = new ArrayList<>();
 
     private boolean isFire = false;
 
@@ -68,12 +75,19 @@ public class TankFrame extends Frame {
         g.setColor(Color.WHITE);
         g.drawString("子弹的个数："+ bullteList.size(),10,100);
         g.setColor(color);
+        g.setColor(Color.WHITE);
+        g.drawString("敌方坦克的个数："+ getEnemyTankList().size(),10,200);
+        g.setColor(color);
 
         tank.paint(g);
 
         System.out.println(" println isFire...." +isFire);
         for (int i=0; i< bullteList.size(); i++ ){
             bullteList.get(i).paint(g);
+        }
+
+        for (int i=0; i< enemyTankList.size(); i++ ){
+            enemyTankList.get(i).paint(g);
         }
 
     }
@@ -175,6 +189,27 @@ public class TankFrame extends Frame {
         }
     }
 
+    public void creatEnemyTank(){
+        if( getEnemyTankListSize() <=10){
+            int r =  new Random().nextInt(4);
+            Dir dir = Dir.DOWN;
+            if(r==1){
+                dir = Dir.DOWN;
+            }else if(r==2){
+                dir = Dir.UP;
+            }else if(r==3){
+                dir = Dir.RIGHT;
+            }else{
+                dir = Dir.LEFT;
+            }
+            int x = new Random().nextInt(650);
+            int y = new Random().nextInt(450);
+            synchronized (this){
+                enemyTankList.add(new EnemyTank(x,y,dir,this));
+            }
+
+        }
+    }
 
     public int getFrameWidth() {
         return frameWidth;
@@ -182,5 +217,13 @@ public class TankFrame extends Frame {
 
     public int getFrameHeight() {
         return frameHeight;
+    }
+
+    public synchronized List<EnemyTank> getEnemyTankList() {
+        return enemyTankList;
+    }
+
+    public synchronized int getEnemyTankListSize() {
+        return enemyTankList.size();
     }
 }
