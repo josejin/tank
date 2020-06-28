@@ -16,14 +16,14 @@ public class Main {
             Thread.sleep(50);
             //重新刷新界面,就多次使页面调用paint方法使坦克移动
             a.repaint();
-            new Thread(new Runnable() {
+            /*new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try{
                         int i=0;
                         while (i<10) {
                             Thread.sleep(50);
-                            a.creatEnemyTank();
+
                             i++;
                         }
                     }catch (InterruptedException e){
@@ -31,7 +31,7 @@ public class Main {
                     }
 
                 }
-            }).start();
+            }).start();*/
 
         }
 

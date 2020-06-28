@@ -12,9 +12,14 @@ public class Bullte {
     //方向枚举
     Dir dir ;
     //每次运行的步长
-    private final int step = 5;
+    private final int step = 8;
 
     private TankFrame tankFrame;
+    //子弹的宽度
+    public static int  BULLE_WIDTH = ResourceMgr.bulletD.getWidth();
+    //子弹的高度
+    public static int  BULLE_HEIGTH = ResourceMgr.bulletD.getHeight();
+
     /**
      * 子弹是否存活
      */
@@ -33,11 +38,28 @@ public class Bullte {
         if (!this.isLove){
             this.tankFrame.bullteList.remove(this);
         }
-        System.out.println(" println Bullte paint....");
+        /*System.out.println(" println Bullte paint....");
         Color c = g.getColor();
         g.setColor(Color.red);
         g.fillOval(x,y,50,50);
-        g.setColor(c);
+        g.setColor(c);*/
+
+        switch (dir){
+            case LEFT:
+                g.drawImage(ResourceMgr.bulletL,x,y,null);
+                break;
+            case RIGHT:
+                g.drawImage(ResourceMgr.bulletR,x,y,null);
+                break;
+            case UP:
+                g.drawImage(ResourceMgr.bulletU,x,y,null);
+                break;
+            case DOWN:
+                g.drawImage(ResourceMgr.bulletD,x,y,null);
+                break;
+            default:
+        }
+
         //子弹移动
         this.Moveing(dir);
     }

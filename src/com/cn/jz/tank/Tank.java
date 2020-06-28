@@ -23,7 +23,10 @@ public class Tank {
 
     private TankFrame tankFrame;
 
-
+    //坦克的宽度
+    public static int  TANK_WIDTH = ResourceMgr.tankD.getWidth();
+    //坦克的高度
+    public static int  TANK_HEIGTH = ResourceMgr.tankD.getHeight();
 
 
     public Tank(int x,int y,Dir dir,TankFrame tankFrame){
@@ -100,6 +103,8 @@ public class Tank {
      * 坦克设计
      */
     public void fire(){
-        tankFrame.bullteList.add(new Bullte(this.x,this.y,this.dir,this.tankFrame));
+        int bullteX=  this.x + Tank.TANK_WIDTH/2 - Bullte.BULLE_WIDTH/2;
+        int BullteY= this.y + Tank.TANK_HEIGTH/2 - Bullte.BULLE_HEIGTH/2;
+        tankFrame.bullteList.add(new Bullte(bullteX,BullteY,this.dir,this.tankFrame));
     }
 }
