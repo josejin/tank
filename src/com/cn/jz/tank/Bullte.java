@@ -92,7 +92,7 @@ public class Bullte {
     public void setDir(Dir dir) {
         this.dir = dir;
     }
-    public void collideWith(Tank tank){
+    public void collideWith(Tank tank,Graphics g){
         if(this.group==tank.getGroup()){
             return;
         }
@@ -100,7 +100,7 @@ public class Bullte {
         Rectangle bullteRect = new Rectangle(this.x,this.y,this.BULLE_WIDTH,this.BULLE_HEIGTH);
         Rectangle tankrect = new Rectangle(tank.getX(),tank.getY(),tank.TANK_WIDTH,tank.TANK_HEIGTH);
         if(bullteRect.intersects(tankrect)){
-            tank.die();
+            tank.die(g);
             this.die();
         }
 
