@@ -30,7 +30,7 @@ public class EnemyTank {
 
     public void paint(Graphics g){
         if (!this.isLove){
-            this.tankFrame.getEnemyTankList().remove(this);
+            this.tankFrame.enemyTankList.remove(this);
         }
         System.out.println(" println EnemyTank paint....");
         Color c = g.getColor();
@@ -55,9 +55,9 @@ public class EnemyTank {
         }
         if (tankFrame.enemyTankList!= null&&tankFrame.enemyTankList.size()>0 && tankFrame.bullteList != null&&tankFrame.bullteList.size()>0){
             //移动改变方向
-            for(EnemyTank enemyTank : tankFrame.enemyTankList){
+            for(Tank tank : tankFrame.enemyTankList){
                 for (Bullte bullte :tankFrame.bullteList){
-                    if(enemyTank.x == bullte.x || enemyTank.y==bullte.y){
+                    if(tank.x == bullte.x || tank.y==bullte.y){
                         this.isLove = false;
                     }
                 }

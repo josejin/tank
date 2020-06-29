@@ -83,6 +83,10 @@ public class Bullte {
         }
     }
 
+    public  void die(){
+        this.isLove =false;
+    }
+
     public Dir getDir() {
         return dir;
     }
@@ -90,6 +94,15 @@ public class Bullte {
     public void setDir(Dir dir) {
         this.dir = dir;
     }
+    public void collideWith(Tank tank){
+        //矩形
+        Rectangle bullteRect = new Rectangle(this.x,this.y,this.BULLE_WIDTH,this.BULLE_HEIGTH);
+        Rectangle tankrect = new Rectangle(tank.getX(),tank.getY(),tank.TANK_WIDTH,tank.TANK_HEIGTH);
+        if(bullteRect.intersects(tankrect)){
+            tank.die();
+            this.die();
+        }
 
+    }
 
 }

@@ -21,7 +21,7 @@ public class TankFrame extends Frame {
     List<Bullte> bullteList = new ArrayList<>();
 
     //敌军坦克类
-   volatile   List<EnemyTank> enemyTankList = new ArrayList<>();
+    List<Tank> enemyTankList = new ArrayList<>();
 
     private boolean isFire = false;
 
@@ -51,7 +51,7 @@ public class TankFrame extends Frame {
      */
     @Override
     public void update(Graphics g) {
-        System.out.println("update...");
+
        if (offScreenImage == null){
            offScreenImage = this.createImage(frameWidth,frameHeight);
        }
@@ -76,12 +76,12 @@ public class TankFrame extends Frame {
         g.drawString("子弹的个数："+ bullteList.size(),10,100);
         g.setColor(color);
         g.setColor(Color.WHITE);
-        g.drawString("敌方坦克的个数："+ getEnemyTankList().size(),10,200);
+        g.drawString("敌方坦克的个数："+ enemyTankList.size(),10,200);
         g.setColor(color);
 
         tank.paint(g);
 
-        System.out.println(" println isFire...." +isFire);
+
         for (int i=0; i< bullteList.size(); i++ ){
             bullteList.get(i).paint(g);
         }
@@ -89,6 +89,15 @@ public class TankFrame extends Frame {
         for (int i=0; i< enemyTankList.size(); i++ ){
             enemyTankList.get(i).paint(g);
         }
+        //子弹与坦克相撞
+        if(enemyTankList!= null&&enemyTankList.size()>0 && bullteList != null&&bullteList.size()>0){
+            for(Tank tank : enemyTankList){
+                for (Bullte bullte :bullteList){
+                    bullte.collideWith(tank);
+                }
+            }
+        }
+
 
     }
 
@@ -189,27 +198,6 @@ public class TankFrame extends Frame {
         }
     }
 
-    public void creatEnemyTank(){
-        if( getEnemyTankListSize() <=10){
-            int r =  new Random().nextInt(4);
-            Dir dir = Dir.DOWN;
-            if(r==1){
-                dir = Dir.DOWN;
-            }else if(r==2){
-                dir = Dir.UP;
-            }else if(r==3){
-                dir = Dir.RIGHT;
-            }else{
-                dir = Dir.LEFT;
-            }
-            int x = new Random().nextInt(650);
-            int y = new Random().nextInt(450);
-            synchronized (this){
-                enemyTankList.add(new EnemyTank(x,y,dir,this));
-            }
-
-        }
-    }
 
     public int getFrameWidth() {
         return frameWidth;
@@ -219,11 +207,6 @@ public class TankFrame extends Frame {
         return frameHeight;
     }
 
-    public synchronized List<EnemyTank> getEnemyTankList() {
-        return enemyTankList;
-    }
 
-    public synchronized int getEnemyTankListSize() {
-        return enemyTankList.size();
-    }
+
 }

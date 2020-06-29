@@ -23,6 +23,11 @@ public class Tank {
 
     private TankFrame tankFrame;
 
+    /**
+     * 坦克是否存活
+     */
+    private boolean isLove = true ;
+
     //坦克的宽度
     public static int  TANK_WIDTH = ResourceMgr.tankD.getWidth();
     //坦克的高度
@@ -40,10 +45,10 @@ public class Tank {
 
     public void paint(Graphics g){
         System.out.println(" println paint....");
-        /*Color color = g.getColor();
-        g.setColor(Color.green);
-        g.fillRect(x,y,50,50);
-        g.setColor(color);*/
+        if (!this.isLove){
+            tankFrame.enemyTankList.remove(this);
+        }
+
         switch (dir){
             case LEFT:
                 g.drawImage(ResourceMgr.tankL,x,y,null);
@@ -106,5 +111,25 @@ public class Tank {
         int bullteX=  this.x + Tank.TANK_WIDTH/2 - Bullte.BULLE_WIDTH/2;
         int BullteY= this.y + Tank.TANK_HEIGTH/2 - Bullte.BULLE_HEIGTH/2;
         tankFrame.bullteList.add(new Bullte(bullteX,BullteY,this.dir,this.tankFrame));
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void die(){
+        this.isLove=false;
     }
 }
