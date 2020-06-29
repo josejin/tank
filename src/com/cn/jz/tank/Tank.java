@@ -29,17 +29,20 @@ public class Tank {
      */
     private boolean isLove = true ;
 
+    private Group group;
+
     //坦克的宽度
     public static int  TANK_WIDTH = ResourceMgr.tankD.getWidth();
     //坦克的高度
     public static int  TANK_HEIGTH = ResourceMgr.tankD.getHeight();
 
 
-    public Tank(int x,int y,Dir dir,TankFrame tankFrame){
+    public Tank(int x,int y,Dir dir,TankFrame tankFrame,Group group){
         this.x= x;
         this.y=y;
         this.dir=dir;
         this.tankFrame = tankFrame;
+        this.group = group;
     }
 
 
@@ -115,7 +118,7 @@ public class Tank {
     public void fire(){
         int bullteX=  this.x + Tank.TANK_WIDTH/2 - Bullte.BULLE_WIDTH/2;
         int BullteY= this.y + Tank.TANK_HEIGTH/2 - Bullte.BULLE_HEIGTH/2;
-        tankFrame.bullteList.add(new Bullte(bullteX,BullteY,this.dir,this.tankFrame));
+        tankFrame.bullteList.add(new Bullte(bullteX,BullteY,this.dir,this.tankFrame,group));
     }
 
     public int getX() {
@@ -136,5 +139,13 @@ public class Tank {
 
     public void die(){
         this.isLove=false;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }

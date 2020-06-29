@@ -11,7 +11,7 @@ public class Main {
         final TankFrame a = new TankFrame();
         //初始化地方坦克
         for(int i=0 ; i< 5 ;i++){
-            a.enemyTankList.add(new Tank(100*i,100,Dir.DOWN,a));
+            a.enemyTankList.add(new Tank(100*i,100,Dir.DOWN,a,Group.BAD));
         }
 
         /**

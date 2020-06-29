@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class TankFrame extends Frame {
 
-    Tank tank =new Tank(200,200,Dir.DOWN,this);
+    Tank tank =new Tank(200,200,Dir.DOWN,this,Group.GOOD);
 
     //Bullte  bullte = new Bullte(50,50,Dir.DOWN);
     //子弹类型

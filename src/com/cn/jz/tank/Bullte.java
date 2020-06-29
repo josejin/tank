@@ -19,17 +19,19 @@ public class Bullte {
     public static int  BULLE_WIDTH = ResourceMgr.bulletD.getWidth();
     //子弹的高度
     public static int  BULLE_HEIGTH = ResourceMgr.bulletD.getHeight();
-
+    //敌我区分
+    private Group group;
     /**
      * 子弹是否存活
      */
     private boolean isLove = true ;
 
-    public Bullte(int x,int y,Dir dir,TankFrame tankFrame){
+    public Bullte(int x,int y,Dir dir,TankFrame tankFrame,Group group){
         this.x= x;
         this.y=y;
         this.dir =dir;
         this.tankFrame = tankFrame;
+        this.group = group;
     }
 
 
@@ -38,7 +40,7 @@ public class Bullte {
         if (!this.isLove){
             this.tankFrame.bullteList.remove(this);
         }
-    
+
 
         switch (dir){
             case LEFT:
@@ -91,6 +93,9 @@ public class Bullte {
         this.dir = dir;
     }
     public void collideWith(Tank tank){
+        if(this.group==tank.getGroup()){
+            return;
+        }
         //矩形
         Rectangle bullteRect = new Rectangle(this.x,this.y,this.BULLE_WIDTH,this.BULLE_HEIGTH);
         Rectangle tankrect = new Rectangle(tank.getX(),tank.getY(),tank.TANK_WIDTH,tank.TANK_HEIGTH);
@@ -101,4 +106,11 @@ public class Bullte {
 
     }
 
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 }
