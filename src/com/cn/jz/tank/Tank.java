@@ -6,6 +6,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Random;
 
 /**
  * 坦克类
@@ -19,7 +20,7 @@ public class Tank {
     //每次运行的步长
     private final int step = 2 ;
 
-    private boolean move = false;
+    private boolean move = true;
 
     private TankFrame tankFrame;
 
@@ -44,7 +45,7 @@ public class Tank {
 
 
     public void paint(Graphics g){
-        System.out.println(" println paint....");
+       // System.out.println(" println paint....");
         if (!this.isLove){
             tankFrame.enemyTankList.remove(this);
         }
@@ -72,6 +73,7 @@ public class Tank {
         //坦克移动
         this.Moveing(dir);
 
+
     }
     //坦克移动
     public void Moveing( Dir dir ){
@@ -85,6 +87,9 @@ public class Tank {
             case DOWN:
                 y+=step;break;
             default:
+        }
+        if(new Random().nextInt(10) > 8){
+            this.fire();
         }
     }
 

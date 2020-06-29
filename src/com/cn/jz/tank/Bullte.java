@@ -38,11 +38,7 @@ public class Bullte {
         if (!this.isLove){
             this.tankFrame.bullteList.remove(this);
         }
-        /*System.out.println(" println Bullte paint....");
-        Color c = g.getColor();
-        g.setColor(Color.red);
-        g.fillOval(x,y,50,50);
-        g.setColor(c);*/
+    
 
         switch (dir){
             case LEFT:
