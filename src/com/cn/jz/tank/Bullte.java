@@ -100,7 +100,7 @@ public class Bullte {
         Rectangle bullteRect = new Rectangle(this.x,this.y,this.BULLE_WIDTH,this.BULLE_HEIGTH);
         Rectangle tankrect = new Rectangle(tank.getX(),tank.getY(),tank.TANK_WIDTH,tank.TANK_HEIGTH);
         if(bullteRect.intersects(tankrect)){
-            tank.die(g);
+            tank.die();
             this.die();
         }
 

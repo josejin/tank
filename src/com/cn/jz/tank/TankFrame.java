@@ -14,8 +14,6 @@ import java.util.Random;
  */
 public class TankFrame extends Frame {
 
-    Explode explode =new Explode(500,200,this);
-
     Tank tank =new Tank(200,200,Dir.DOWN,this,Group.GOOD);
 
     //Bullte  bullte = new Bullte(50,50,Dir.DOWN);
@@ -25,9 +23,16 @@ public class TankFrame extends Frame {
     //敌军坦克类
     List<Tank> enemyTankList = new ArrayList<>();
 
+    //爆炸List
+    List<Explode> explodeList =new ArrayList<>();
+
+
     private boolean isFire = false;
 
-    private final int frameWidth = 700,frameHeight = 500;
+    private final int frameWidth = 1000,frameHeight = 800;
+
+
+
 
 
     public TankFrame(){
@@ -92,6 +97,11 @@ public class TankFrame extends Frame {
         for (int i=0; i< enemyTankList.size(); i++ ){
             enemyTankList.get(i).paint(g);
         }
+        for (int i=0; i< explodeList.size(); i++ ){
+            explodeList.get(i).paint(g);
+        }
+
+
         //子弹与坦克相撞
         if(enemyTankList!= null&&enemyTankList.size()>0 && bullteList != null&&bullteList.size()>0){
             for(Tank tank : enemyTankList){
@@ -101,8 +111,6 @@ public class TankFrame extends Frame {
             }
         }
 
-        //爆炸
-        explode.paint(g);
     }
 
     /**

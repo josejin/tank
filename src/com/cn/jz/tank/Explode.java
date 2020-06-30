@@ -25,10 +25,9 @@ public class Explode {
 
 
     public void paint(Graphics g){
-        if(step==16){
-            step=0;
+        g.drawImage(ResourceMgr.explodes[step++],x,y,null);
+        if(step>=ResourceMgr.explodes.length){
+            tankFrame.explodeList.remove(this);
         }
-        g.drawImage(ResourceMgr.explodes[step],x,y,null);
-        step ++;
     }
 }

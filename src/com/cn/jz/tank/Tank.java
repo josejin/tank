@@ -137,10 +137,9 @@ public class Tank {
         this.y = y;
     }
 
-    public void die(Graphics g){
+    public void die(){
         this.isLove=false;
-        Explode explode = new Explode(this.x,this.y,this.tankFrame);
-        explode.paint(g);
+       tankFrame.explodeList.add(new Explode(this.x,this.y,tankFrame));
     }
 
     public Group getGroup() {

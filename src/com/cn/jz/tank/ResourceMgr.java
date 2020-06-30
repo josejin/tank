@@ -18,15 +18,25 @@ public class ResourceMgr {
     public static BufferedImage[] explodes = new BufferedImage[16];
     static {
         try {
-            tankR = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/tankR.gif"));
+           /* tankR = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/tankR.gif"));
             tankD = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/tankD.gif"));
             tankL = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/tankL.gif"));
-            tankU = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/tankU.gif"));
+            tankU = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/tankU.gif"));*/
+            tankU = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/GoodTank2.png"));
+            tankR = ImageUtil.rotateImage(tankU,90);
+            tankD = ImageUtil.rotateImage(tankU,180);
+            tankL = ImageUtil.rotateImage(tankU,-90);
 
-            bulletR = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/bulletR.gif"));
+
+           /* bulletR = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/bulletR.gif"));
             bulletD = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/bulletD.gif"));
             bulletL = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/bulletL.gif"));
-            bulletU = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/bulletU.gif"));
+            bulletU = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/bulletU.gif"));*/
+            bulletU = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/bulletU.png"));
+            bulletR = ImageUtil.rotateImage(bulletU,90);
+            bulletD = ImageUtil.rotateImage(bulletU,180);
+            bulletL = ImageUtil.rotateImage(bulletU,-90);
+
 
             explodes[0] = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/e1.gif"));
             explodes[1] = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/e2.gif"));
