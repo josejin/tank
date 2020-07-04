@@ -17,7 +17,7 @@ public class ConfigMgr {
         }
     }*/
     //懒汉式
-    private static volatile  Properties pro =  null;
+   /* private static volatile  Properties pro =  null;
 
     private static void init(){
         try {
@@ -26,10 +26,11 @@ public class ConfigMgr {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
-
-  /* private static void init(){
+  //双重锁实现单例
+  private static volatile  Properties pro =  null;
+  private static void init(){
        if (pro==null){
            synchronized (ConfigMgr.class){
                if (pro==null){
@@ -43,7 +44,7 @@ public class ConfigMgr {
            }
        }
     }
-*/
+
 
     public static Properties  getConfigMgr(){
          init();
