@@ -7,7 +7,7 @@ public class ConfigMgr {
     private ConfigMgr(){
     }
     //饿汉式加载。
-   private static volatile  Properties pro =  new Properties();
+ /*  private static volatile  Properties pro =  new Properties();
 
     static {
         try {
@@ -15,8 +15,18 @@ public class ConfigMgr {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
+    //懒汉式
+    private static volatile  Properties pro =  null;
 
+    private static void init(){
+        try {
+            pro = new Properties();
+            pro.load(ConfigMgr.class.getClassLoader().getResourceAsStream("config"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
   /* private static void init(){
@@ -36,6 +46,7 @@ public class ConfigMgr {
 */
 
     public static Properties  getConfigMgr(){
+         init();
         return  pro;
     }
 
