@@ -9,8 +9,9 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
 
         final TankFrame a = new TankFrame();
+        int enemyTankCount = Integer.valueOf(ConfigMgr.getStringValue("enemyTankCount"));
         //初始化地方坦克
-        for(int i=0 ; i< 5 ;i++){
+        for(int i=0 ; i< enemyTankCount ;i++){
             a.enemyTankList.add(new Tank(100*i,100,Dir.DOWN,a,Group.BAD));
         }
 
