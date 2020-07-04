@@ -29,7 +29,7 @@ public class ConfigMgr {
     }*/
 
   //双重锁实现单例
-  private static volatile  Properties pro =  null;
+  /*private static volatile  Properties pro =  null;
   private static void init(){
        if (pro==null){
            synchronized (ConfigMgr.class){
@@ -43,12 +43,25 @@ public class ConfigMgr {
                }
            }
        }
+    }*/
+
+    //静态内部类实现单例
+
+    private static class initClass{
+        private static   Properties pro = null;
+        static {
+            try {
+                pro = new Properties();
+                pro.load(ConfigMgr.class.getClassLoader().getResourceAsStream("config"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
-
     public static Properties  getConfigMgr(){
-         init();
-        return  pro;
+        return  initClass.pro;
     }
 
 
@@ -59,7 +72,7 @@ public class ConfigMgr {
      */
   public static String  getStringValue(String key){
      // init();
-      return  pro.getProperty(key);
+      return  initClass.pro.getProperty(key);
   }
 
     /**
@@ -69,7 +82,7 @@ public class ConfigMgr {
      */
   public static Object getStringObj(String key){
      // init();
-      return  pro.get(key);
+      return  initClass.pro.get(key);
   }
 
 
