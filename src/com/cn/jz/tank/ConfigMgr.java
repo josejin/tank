@@ -6,8 +6,20 @@ import java.util.Properties;
 public class ConfigMgr {
     private ConfigMgr(){
     }
-   private static volatile  Properties pro = null;
-   private static void init(){
+    //饿汉式加载。
+   private static volatile  Properties pro =  new Properties();
+
+    static {
+        try {
+            pro.load(ConfigMgr.class.getClassLoader().getResourceAsStream("config"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+  /* private static void init(){
        if (pro==null){
            synchronized (ConfigMgr.class){
                if (pro==null){
@@ -21,16 +33,12 @@ public class ConfigMgr {
            }
        }
     }
+*/
 
+    public static Properties  getConfigMgr(){
+        return  pro;
+    }
 
-
- /* static {
-      try {
-          pro.load(ConfigMgr.class.getClassLoader().getResourceAsStream("config"));
-      } catch (IOException e) {
-          e.printStackTrace();
-      }
-  }*/
 
     /**
      * 获取配置文件返回参数
@@ -38,7 +46,7 @@ public class ConfigMgr {
      * @return
      */
   public static String  getStringValue(String key){
-      init();
+     // init();
       return  pro.getProperty(key);
   }
 
@@ -48,7 +56,33 @@ public class ConfigMgr {
      * @return
      */
   public static Object getStringObj(String key){
-      init();
+     // init();
       return  pro.get(key);
   }
+
+
+    public static void main(String[] args) {
+        new Thread(()->{
+            while(true){
+
+                try {
+                    System.out.println(ConfigMgr.getConfigMgr().hashCode());
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+        new Thread(()->{
+            while(true){
+                try {
+                    System.out.println(ConfigMgr.getConfigMgr().hashCode());
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
 }
