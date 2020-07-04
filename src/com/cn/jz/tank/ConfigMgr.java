@@ -91,7 +91,9 @@ public class ConfigMgr {
             while(true){
 
                 try {
-                    System.out.println(ConfigMgr.getConfigMgr().hashCode());
+                   // System.out.println(ConfigMgr.getConfigMgr().hashCode());
+                    System.out.println(ConfigEnum.PRO.getConfigMgr().hashCode());
+
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -102,7 +104,8 @@ public class ConfigMgr {
         new Thread(()->{
             while(true){
                 try {
-                    System.out.println(ConfigMgr.getConfigMgr().hashCode());
+                  //  System.out.println(ConfigMgr.getConfigMgr().hashCode());
+                    System.out.println(ConfigEnum.PRO.getConfigMgr().hashCode());
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
