@@ -36,6 +36,7 @@ public class Tank {
     //坦克的高度
     public static int  TANK_HEIGTH = ResourceMgr.tankD.getHeight();
 
+    Rectangle tankrect = null;
 
     public Tank(int x,int y,Dir dir,TankFrame tankFrame,Group group){
         this.x= x;
@@ -43,6 +44,8 @@ public class Tank {
         this.dir=dir;
         this.tankFrame = tankFrame;
         this.group = group;
+
+        tankrect = new Rectangle(this.x,this.y,TANK_WIDTH,TANK_HEIGTH);
     }
 
 
@@ -55,16 +58,16 @@ public class Tank {
 
         switch (dir){
             case LEFT:
-                g.drawImage(ResourceMgr.tankL,x,y,null);
+                g.drawImage(this.group==Group.BAD?ResourceMgr.badTankL:ResourceMgr.tankL,x,y,null);
                 break;
             case RIGHT:
-                g.drawImage(ResourceMgr.tankR,x,y,null);
+                g.drawImage(this.group==Group.BAD?ResourceMgr.badTankR:ResourceMgr.tankR,x,y,null);
                 break;
             case UP:
-                g.drawImage(ResourceMgr.tankU,x,y,null);
+                g.drawImage(this.group==Group.BAD?ResourceMgr.badTankU:ResourceMgr.tankU,x,y,null);
                 break;
             case DOWN:
-                g.drawImage(ResourceMgr.tankD,x,y,null);
+                g.drawImage(this.group==Group.BAD?ResourceMgr.badTankD:ResourceMgr.tankD,x,y,null);
                 break;
             default:
         }
@@ -91,9 +94,47 @@ public class Tank {
                 y+=step;break;
             default:
         }
-        if(new Random().nextInt(10) > 8){
-            this.fire();
+
+        //更新
+        tankrect.x =this.x;
+        tankrect.y = this.y;
+        //坦克射击
+        if(Group.BAD.equals(this.group)){
+            if(new Random().nextInt(10) > 8){
+                this.fire();
+            }
+            //坦克随机移动方向
+            if(new Random().nextInt(100) > 95){
+                this.randomDir();
+            }
         }
+
+        //坦克移动超出边界处理
+        this.movingBoundCheck();
+    }
+
+    /**
+     * 坦克移动超出边界处理
+     */
+    private void movingBoundCheck(){
+        if(this.x<2){
+            this.x =2;
+        }
+        if(this.y<28){
+            this.y =28;
+        }
+        if (this.x > tankFrame.frameWidth - TANK_WIDTH){
+            this.x = tankFrame.frameWidth - TANK_WIDTH -2;
+        }
+        if (this.y > tankFrame.frameHeight - TANK_HEIGTH){
+            this.y = tankFrame.frameHeight - TANK_HEIGTH -2;
+        }
+
+
+    }
+
+    private void randomDir(){
+      this.dir  = Dir.values()[new Random().nextInt(4)] ;
     }
 
     public Dir getDir() {

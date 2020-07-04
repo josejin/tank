@@ -26,12 +26,16 @@ public class Bullte {
      */
     private boolean isLove = true ;
 
+    Rectangle bullteRect = null;
+
     public Bullte(int x,int y,Dir dir,TankFrame tankFrame,Group group){
         this.x= x;
         this.y=y;
         this.dir =dir;
         this.tankFrame = tankFrame;
         this.group = group;
+
+        bullteRect = new Rectangle(this.x,this.y,this.BULLE_WIDTH,this.BULLE_HEIGTH);
     }
 
 
@@ -75,6 +79,8 @@ public class Bullte {
             default:
         }
 
+        bullteRect.x =this.x;
+        bullteRect.y=this.y;
         //移除子弹
         if(x<0 || y<0 || x>tankFrame.getFrameWidth() || y > tankFrame.getFrameHeight()){
             this.isLove = false;
@@ -97,9 +103,9 @@ public class Bullte {
             return;
         }
         //矩形
-        Rectangle bullteRect = new Rectangle(this.x,this.y,this.BULLE_WIDTH,this.BULLE_HEIGTH);
-        Rectangle tankrect = new Rectangle(tank.getX(),tank.getY(),tank.TANK_WIDTH,tank.TANK_HEIGTH);
-        if(bullteRect.intersects(tankrect)){
+       // Rectangle bullteRect = new Rectangle(this.x,this.y,this.BULLE_WIDTH,this.BULLE_HEIGTH);
+       // Rectangle tankrect = new Rectangle(tank.getX(),tank.getY(),tank.TANK_WIDTH,tank.TANK_HEIGTH);
+        if(bullteRect.intersects(tank.tankrect)){
             tank.die();
             this.die();
         }

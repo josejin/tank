@@ -12,6 +12,8 @@ import java.io.IOException;
 public class ResourceMgr {
     //坦克图片
     public static BufferedImage tankR ,tankD, tankL,tankU;
+    //地方坦克图片
+    public static BufferedImage badTankR ,badTankD, badTankL,badTankU;
     //子弹图片
     public static BufferedImage bulletR ,bulletD, bulletL,bulletU;
     //爆炸图片
@@ -27,6 +29,10 @@ public class ResourceMgr {
             tankD = ImageUtil.rotateImage(tankU,180);
             tankL = ImageUtil.rotateImage(tankU,-90);
 
+            badTankU = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/BadTank1.png"));
+            badTankR = ImageUtil.rotateImage(badTankU,90);
+            badTankD = ImageUtil.rotateImage(badTankU,180);
+            badTankL = ImageUtil.rotateImage(badTankU,-90);
 
            /* bulletR = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/bulletR.gif"));
             bulletD = ImageIO.read(ImagesTest.class.getClassLoader().getResource("images/bulletD.gif"));

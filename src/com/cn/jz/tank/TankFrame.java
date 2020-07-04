@@ -27,9 +27,9 @@ public class TankFrame extends Frame {
     List<Explode> explodeList =new ArrayList<>();
 
 
-    private boolean isFire = false;
+    public boolean isFire = false;
 
-    private final int frameWidth = 1000,frameHeight = 800;
+    public final int frameWidth = 1000,frameHeight = 800;
 
 
 

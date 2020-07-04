@@ -19,7 +19,13 @@ public class Explode {
         this.x= x;
         this.y=y;
         this.tankFrame = tankFrame;
-        new Audio("audio/explode.wav").play();
+      // new Thread(()->new Audio("audio/explode.wav").play()).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                new Audio("audio/explode.wav").play();
+            }
+        }).start();
     }
 
 
