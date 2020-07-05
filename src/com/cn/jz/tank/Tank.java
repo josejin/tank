@@ -24,9 +24,11 @@ public class Tank {
 
     TankFrame tankFrame;
 
-    DefaultFireStrategy defaultFireStrategy = new DefaultFireStrategy();
+    /*DefaultFireStrategy defaultFireStrategy = new DefaultFireStrategy();*/
 
     FourDirFireStrategy fourDirFireStrategy = new FourDirFireStrategy();
+
+    FireStrategy fireStrategy=null;
 
     /**
      * 坦克是否存活
@@ -50,6 +52,24 @@ public class Tank {
         this.group = group;
 
         tankrect = new Rectangle(this.x,this.y,TANK_WIDTH,TANK_HEIGTH);
+        try {
+            if (this.group == Group.GOOD) {
+
+
+            }else{
+                String defultFire = ConfigMgr.getStringValue("defultFire");
+
+                Class  defultFireClass = Class.forName(defultFire);
+                fireStrategy = (FireStrategy) defultFireClass.newInstance();
+
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -164,7 +184,7 @@ public class Tank {
         if(Group.GOOD == this.group){
             fourDirFireStrategy.fire(this);
         }else {
-            defaultFireStrategy.fire(this);
+            fireStrategy.fire(this);
         }
 
     }

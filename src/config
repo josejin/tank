@@ -1,2 +1,6 @@
 #地方坦克的数量
 enemyTankCount=15
+#子弹默认射击策略类
+defultFire=com.cn.jz.tank.DefaultFireStrategy
+#子弹从四面射击策略类
+fourDirFire=com.cn.jz.tank.FourDirFireStrategy
