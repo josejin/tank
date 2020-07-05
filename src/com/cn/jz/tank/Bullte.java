@@ -36,6 +36,8 @@ public class Bullte {
         this.group = group;
 
         bullteRect = new Rectangle(this.x,this.y,this.BULLE_WIDTH,this.BULLE_HEIGTH);
+
+        tankFrame.bullteList.add(this);
     }
 
 

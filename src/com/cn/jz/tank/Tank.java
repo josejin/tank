@@ -22,14 +22,18 @@ public class Tank {
 
     private boolean move = true;
 
-    private TankFrame tankFrame;
+    TankFrame tankFrame;
+
+    DefaultFireStrategy defaultFireStrategy = new DefaultFireStrategy();
+
+    FourDirFireStrategy fourDirFireStrategy = new FourDirFireStrategy();
 
     /**
      * 坦克是否存活
      */
     private boolean isLove = true ;
 
-    private Group group;
+    Group group;
 
     //坦克的宽度
     public static int  TANK_WIDTH = ResourceMgr.tankD.getWidth();
@@ -157,9 +161,12 @@ public class Tank {
      * 坦克设计
      */
     public void fire(){
-        int bullteX=  this.x + Tank.TANK_WIDTH/2 - Bullte.BULLE_WIDTH/2;
-        int BullteY= this.y + Tank.TANK_HEIGTH/2 - Bullte.BULLE_HEIGTH/2;
-        tankFrame.bullteList.add(new Bullte(bullteX,BullteY,this.dir,this.tankFrame,group));
+        if(Group.GOOD == this.group){
+            fourDirFireStrategy.fire(this);
+        }else {
+            defaultFireStrategy.fire(this);
+        }
+
     }
 
     public int getX() {
