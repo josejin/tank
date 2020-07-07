@@ -1,11 +1,15 @@
-package com.cn.jz.tank;
+package com.cn.jz.tank.Factory.explode;
 
+import com.cn.jz.tank.Audio;
+import com.cn.jz.tank.Explode;
 import com.cn.jz.tank.Factory.AbstractStyleFactory;
 import com.cn.jz.tank.Factory.DefaultFactory;
+import com.cn.jz.tank.ResourceMgr;
+import com.cn.jz.tank.TankFrame;
 
 import java.awt.*;
 
-public class Explode {
+public class DefaultExplode extends BaseExplode {
 
     //坦克位子方向
     int x = 200;
@@ -16,8 +20,8 @@ public class Explode {
 
     private TankFrame tankFrame;
 
-    AbstractStyleFactory abstractStyleFactory = new DefaultFactory();
-    public Explode(int x, int y, TankFrame tankFrame) {
+
+    public DefaultExplode(int x, int y, TankFrame tankFrame) {
         this.x = x;
         this.y = y;
         this.tankFrame = tankFrame;
@@ -33,7 +37,7 @@ public class Explode {
 
     public void paint(Graphics g) {
 
-       g.drawImage(ResourceMgr.explodes[step++], x, y, null);
+        g.drawImage(ResourceMgr.explodes[step++], x, y, null);
         if (step >= ResourceMgr.explodes.length) {
             tankFrame.explodeList.remove(this);
         }
@@ -46,5 +50,4 @@ public class Explode {
     public int getY() {
         return y;
     }
-
 }

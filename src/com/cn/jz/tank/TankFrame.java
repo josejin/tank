@@ -1,5 +1,10 @@
 package com.cn.jz.tank;
 
+import com.cn.jz.tank.Factory.AbstractStyleFactory;
+import com.cn.jz.tank.Factory.DefaultFactory;
+import com.cn.jz.tank.Factory.bullte.BullteBase;
+import com.cn.jz.tank.Factory.tank.BaseTank;
+
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -7,30 +12,30 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * 战场类型
  */
 public class TankFrame extends Frame {
 
-    Tank tank =new Tank(200,200,Dir.DOWN,this,Group.GOOD);
+    AbstractStyleFactory defaultFactory =  new DefaultFactory();
+
+    BaseTank tank =defaultFactory.createTank(200,200,Dir.DOWN,this,Group.GOOD);
 
     //Bullte  bullte = new Bullte(50,50,Dir.DOWN);
     //子弹类型
-    List<Bullte> bullteList = new ArrayList<>();
+   public List<BullteBase> bullteList = new ArrayList<>();
 
     //敌军坦克类
-    List<Tank> enemyTankList = new ArrayList<>();
+   public List<BaseTank> enemyTankList = new ArrayList<>();
 
     //爆炸List
-    List<Explode> explodeList =new ArrayList<>();
+   public List<Explode> explodeList =new ArrayList<>();
 
 
     public boolean isFire = false;
 
     public final int frameWidth = 1000,frameHeight = 800;
-
 
 
 
@@ -104,8 +109,8 @@ public class TankFrame extends Frame {
 
         //子弹与坦克相撞
         if(enemyTankList!= null&&enemyTankList.size()>0 && bullteList != null&&bullteList.size()>0){
-            for(Tank tank : enemyTankList){
-                for (Bullte bullte :bullteList){
+            for(BaseTank tank : enemyTankList){
+                for (BullteBase bullte :bullteList){
                     bullte.collideWith(tank,g);
                 }
             }
@@ -179,7 +184,7 @@ public class TankFrame extends Frame {
                     break;
                 case KeyEvent.VK_CONTROL:
                     isFire = true;
-                    tank.fire();
+                    tank.fire(defaultFactory);
                     break;
                 default:
             }

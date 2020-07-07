@@ -1,5 +1,9 @@
 package com.cn.jz.tank;
 
+import com.cn.jz.tank.Factory.AbstractStyleFactory;
+import com.cn.jz.tank.Factory.DefaultFactory;
+import com.cn.jz.tank.Factory.ShapeFactoy;
+
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -12,9 +16,11 @@ public class Main {
        // int enemyTankCount = Integer.valueOf(ConfigMgr.getStringValue("enemyTankCount"));
         int enemyTankCount =  Integer.valueOf(ConfigEnum.PRO.getStringValue("enemyTankCount"));
 
+         AbstractStyleFactory defaultFactory =  new ShapeFactoy();
+
         //初始化地方坦克
         for(int i=0 ; i< enemyTankCount ;i++){
-            a.enemyTankList.add(new Tank(100*i,100,Dir.DOWN,a,Group.BAD));
+            a.enemyTankList.add(defaultFactory.createTank(100*i,100,Dir.DOWN,a,Group.BAD));
         }
 
         /**

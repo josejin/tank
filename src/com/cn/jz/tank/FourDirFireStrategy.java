@@ -1,13 +1,17 @@
 package com.cn.jz.tank;
 
-public class FourDirFireStrategy  implements  FireStrategy<Tank>{
+import com.cn.jz.tank.Factory.AbstractStyleFactory;
+import com.cn.jz.tank.Factory.bullte.BullteBase;
+import com.cn.jz.tank.Factory.tank.BaseTank;
+
+public class FourDirFireStrategy  implements  FireStrategy<BaseTank>{
     @Override
-    public void fire(Tank tank) {
+    public void fire(BaseTank tank, AbstractStyleFactory defaultFactory) {
         Dir[] dirs = Dir.values();
         for (Dir dir : dirs){
-            int bullteX=  tank.x + Tank.TANK_WIDTH/2 - Bullte.BULLE_WIDTH/2;
-            int BullteY= tank.y + Tank.TANK_HEIGTH/2 - Bullte.BULLE_HEIGTH/2;
-            new Bullte(bullteX,BullteY,dir,tank.tankFrame,tank.group);
+            int bullteX=  tank.getX() + BaseTank.TANK_WIDTH/2 - BullteBase.BULLE_WIDTH/2;
+            int BullteY= tank.getY() + BaseTank.TANK_HEIGTH/2 - BullteBase.BULLE_HEIGTH/2;
+            defaultFactory.createBullteStyle(bullteX,BullteY,tank.getDir(),tank.getTankFrame(),tank.getGroup());
         }
 
     }
