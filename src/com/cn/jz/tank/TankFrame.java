@@ -14,24 +14,17 @@ import java.util.Random;
  */
 public class TankFrame extends Frame {
 
-    Tank tank =new Tank(200,200,Dir.DOWN,this,Group.GOOD);
+
 
     //Bullte  bullte = new Bullte(50,50,Dir.DOWN);
-    //子弹类型
-    List<Bullte> bullteList = new ArrayList<>();
 
-    //敌军坦克类
-    List<Tank> enemyTankList = new ArrayList<>();
-
-    //爆炸List
-    List<Explode> explodeList =new ArrayList<>();
 
 
     public boolean isFire = false;
 
-    public final int frameWidth = 1000,frameHeight = 800;
+    public static final int frameWidth = 1000,frameHeight = 800;
 
-
+    private GameMode gm = new GameMode();
 
 
 
@@ -79,38 +72,7 @@ public class TankFrame extends Frame {
      */
     @Override
     public void paint(Graphics g){
-        Color color = g.getColor();
-        g.setColor(Color.WHITE);
-        g.drawString("子弹的个数："+ bullteList.size(),10,100);
-        g.setColor(color);
-        g.setColor(Color.WHITE);
-        g.drawString("敌方坦克的个数："+ enemyTankList.size(),10,200);
-        g.setColor(color);
-
-        tank.paint(g);
-
-
-        for (int i=0; i< bullteList.size(); i++ ){
-            bullteList.get(i).paint(g);
-        }
-
-        for (int i=0; i< enemyTankList.size(); i++ ){
-            enemyTankList.get(i).paint(g);
-        }
-        for (int i=0; i< explodeList.size(); i++ ){
-            explodeList.get(i).paint(g);
-        }
-
-
-        //子弹与坦克相撞
-        if(enemyTankList!= null&&enemyTankList.size()>0 && bullteList != null&&bullteList.size()>0){
-            for(Tank tank : enemyTankList){
-                for (Bullte bullte :bullteList){
-                    bullte.collideWith(tank,g);
-                }
-            }
-        }
-
+        gm.paint(g);
     }
 
     /**
@@ -179,7 +141,7 @@ public class TankFrame extends Frame {
                     break;
                 case KeyEvent.VK_CONTROL:
                     isFire = true;
-                    tank.fire();
+                    gm.getTank().fire();
                     break;
                 default:
             }
@@ -187,6 +149,7 @@ public class TankFrame extends Frame {
         }
         //键盘触发改变方向
         public  void setMainTankDir(){
+            Tank tank =gm.getTank();
             if (!vl||!vf||!vu||!vk){
                 tank.setMove(false);
             }
@@ -196,8 +159,8 @@ public class TankFrame extends Frame {
                 tank.setDir(Dir.LEFT);
             }
             if (vf){
-                tank.setMove(true);
-                tank.setDir(Dir.RIGHT);
+                gm.getTank().setMove(true);
+                gm.getTank().setDir(Dir.RIGHT);
             }
             if (vu){
                 tank.setMove(true);

@@ -12,13 +12,13 @@ public class Explode {
     //每次运行的步长
     private  int step = 0;
 
-    private TankFrame tankFrame;
+    private GameMode gm;
 
 
-    public Explode(int x,int y,TankFrame tankFrame){
+    public Explode(int x,int y,GameMode gm){
         this.x= x;
         this.y=y;
-        this.tankFrame = tankFrame;
+        this.gm = gm;
       // new Thread(()->new Audio("audio/explode.wav").play()).start();
         new Thread(new Runnable() {
             @Override
@@ -33,7 +33,7 @@ public class Explode {
     public void paint(Graphics g){
         g.drawImage(ResourceMgr.explodes[step++],x,y,null);
         if(step>=ResourceMgr.explodes.length){
-            tankFrame.explodeList.remove(this);
+            gm.explodeList.remove(this);
         }
     }
 }

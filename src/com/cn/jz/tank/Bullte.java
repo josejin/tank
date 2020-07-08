@@ -14,7 +14,6 @@ public class Bullte {
     //每次运行的步长
     private final int step = 8;
 
-    private TankFrame tankFrame;
     //子弹的宽度
     public static int  BULLE_WIDTH = ResourceMgr.bulletD.getWidth();
     //子弹的高度
@@ -28,23 +27,25 @@ public class Bullte {
 
     Rectangle bullteRect = null;
 
-    public Bullte(int x,int y,Dir dir,TankFrame tankFrame,Group group){
+    GameMode gm = null;
+
+    public Bullte(int x,int y,Dir dir,GameMode gm,Group group){
         this.x= x;
         this.y=y;
         this.dir =dir;
-        this.tankFrame = tankFrame;
+        this.gm = gm;
         this.group = group;
 
         bullteRect = new Rectangle(this.x,this.y,this.BULLE_WIDTH,this.BULLE_HEIGTH);
 
-        tankFrame.bullteList.add(this);
+        gm.bullteList.add(this);
     }
 
 
 
     public void paint(Graphics g){
         if (!this.isLove){
-            this.tankFrame.bullteList.remove(this);
+            this.gm.bullteList.remove(this);
         }
 
 
@@ -84,7 +85,7 @@ public class Bullte {
         bullteRect.x =this.x;
         bullteRect.y=this.y;
         //移除子弹
-        if(x<0 || y<0 || x>tankFrame.getFrameWidth() || y > tankFrame.getFrameHeight()){
+        if(x<0 || y<0 || x>TankFrame.frameHeight || y > TankFrame.frameHeight){
             this.isLove = false;
         }
     }

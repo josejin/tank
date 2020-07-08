@@ -4,3 +4,7 @@ enemyTankCount=15
 defultFire=com.cn.jz.tank.DefaultFireStrategy
 #子弹从四面射击策略类
 fourDirFire=com.cn.jz.tank.FourDirFireStrategy
+#子弹样式类型，bullteStyleI，bullteStyleII
+bullteStyleType=bullteStyleII
+#爆炸样式类型，explodeStypeI，explodeStypeII
+explodeStype=explodeStypeI

@@ -22,8 +22,6 @@ public class Tank {
 
     private boolean move = true;
 
-    TankFrame tankFrame;
-
     /*DefaultFireStrategy defaultFireStrategy = new DefaultFireStrategy();*/
 
     FourDirFireStrategy fourDirFireStrategy = new FourDirFireStrategy();
@@ -44,11 +42,13 @@ public class Tank {
 
     Rectangle tankrect = null;
 
-    public Tank(int x,int y,Dir dir,TankFrame tankFrame,Group group){
+    GameMode gm = null;
+
+    public Tank(int x,int y,Dir dir,GameMode gm,Group group){
         this.x= x;
         this.y=y;
         this.dir=dir;
-        this.tankFrame = tankFrame;
+        this.gm = gm;
         this.group = group;
 
         tankrect = new Rectangle(this.x,this.y,TANK_WIDTH,TANK_HEIGTH);
@@ -77,7 +77,7 @@ public class Tank {
     public void paint(Graphics g){
        // System.out.println(" println paint....");
         if (!this.isLove){
-            tankFrame.enemyTankList.remove(this);
+            gm.enemyTankList.remove(this);
         }
 
         switch (dir){
@@ -147,11 +147,11 @@ public class Tank {
         if(this.y<28){
             this.y =28;
         }
-        if (this.x > tankFrame.frameWidth - TANK_WIDTH){
-            this.x = tankFrame.frameWidth - TANK_WIDTH -2;
+        if (this.x > TankFrame.frameWidth - TANK_WIDTH){
+            this.x = TankFrame.frameWidth - TANK_WIDTH -2;
         }
-        if (this.y > tankFrame.frameHeight - TANK_HEIGTH){
-            this.y = tankFrame.frameHeight - TANK_HEIGTH -2;
+        if (this.y > TankFrame.frameHeight - TANK_HEIGTH){
+            this.y = TankFrame.frameHeight - TANK_HEIGTH -2;
         }
 
 
@@ -207,7 +207,7 @@ public class Tank {
 
     public void die(){
         this.isLove=false;
-       tankFrame.explodeList.add(new Explode(this.x,this.y,tankFrame));
+        gm.explodeList.add(new Explode(this.x,this.y,gm));
     }
 
     public Group getGroup() {
@@ -217,4 +217,6 @@ public class Tank {
     public void setGroup(Group group) {
         this.group = group;
     }
+
+
 }
