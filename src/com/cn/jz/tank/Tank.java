@@ -11,10 +11,7 @@ import java.util.Random;
 /**
  * 坦克类
  */
-public class Tank {
-    //坦克位子方向
-    int x=200;
-    int y=200;
+public class Tank  extends ModeObject{
     //方向枚举
     Dir dir = Dir.DOWN;
     //每次运行的步长
@@ -27,6 +24,8 @@ public class Tank {
     FourDirFireStrategy fourDirFireStrategy = new FourDirFireStrategy();
 
     FireStrategy fireStrategy=null;
+
+    private int oldX,oldY;
 
     /**
      * 坦克是否存活
@@ -43,6 +42,7 @@ public class Tank {
     Rectangle tankrect = null;
 
     GameMode gm = null;
+
 
     public Tank(int x,int y,Dir dir,GameMode gm,Group group){
         this.x= x;
@@ -77,7 +77,7 @@ public class Tank {
     public void paint(Graphics g){
        // System.out.println(" println paint....");
         if (!this.isLove){
-            gm.enemyTankList.remove(this);
+            gm.getModeObjectList().remove(this);
         }
 
         switch (dir){
@@ -122,6 +122,8 @@ public class Tank {
         //更新
         tankrect.x =this.x;
         tankrect.y = this.y;
+        oldX = this.x;
+        oldY =this.y;
         //坦克射击
         if(Group.BAD.equals(this.group)){
             if(new Random().nextInt(10) > 8){
@@ -207,7 +209,7 @@ public class Tank {
 
     public void die(){
         this.isLove=false;
-        gm.explodeList.add(new Explode(this.x,this.y,gm));
+        gm.getModeObjectList().add(new Explode(this.x,this.y,gm));
     }
 
     public Group getGroup() {
@@ -218,5 +220,15 @@ public class Tank {
         this.group = group;
     }
 
+    public Rectangle getTankrect() {
+        return tankrect;
+    }
 
+    public int getOldX() {
+        return oldX;
+    }
+
+    public int getOldY() {
+        return oldY;
+    }
 }

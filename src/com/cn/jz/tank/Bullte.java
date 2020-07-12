@@ -5,10 +5,8 @@ import java.awt.*;
 /**
  * 子弹类
  */
-public class Bullte {
-    //坦克位子方向
-    int x=200;
-    int y=200;
+public class Bullte extends ModeObject{
+
     //方向枚举
     Dir dir ;
     //每次运行的步长
@@ -38,14 +36,14 @@ public class Bullte {
 
         bullteRect = new Rectangle(this.x,this.y,this.BULLE_WIDTH,this.BULLE_HEIGTH);
 
-        gm.bullteList.add(this);
+        gm.modeObjectList.add(this);
     }
 
 
 
     public void paint(Graphics g){
         if (!this.isLove){
-            this.gm.bullteList.remove(this);
+            this.gm.modeObjectList.remove(this);
         }
 
 
@@ -85,7 +83,7 @@ public class Bullte {
         bullteRect.x =this.x;
         bullteRect.y=this.y;
         //移除子弹
-        if(x<0 || y<0 || x>TankFrame.frameHeight || y > TankFrame.frameHeight){
+        if(x<0 || y<0 || x>TankFrame.frameWidth || y > TankFrame.frameHeight){
             this.isLove = false;
         }
     }
@@ -101,9 +99,9 @@ public class Bullte {
     public void setDir(Dir dir) {
         this.dir = dir;
     }
-    public void collideWith(Tank tank,Graphics g){
+    public void collideWith(Tank tank){
         if(this.group==tank.getGroup()){
-            return;
+            return ;
         }
         //矩形
        // Rectangle bullteRect = new Rectangle(this.x,this.y,this.BULLE_WIDTH,this.BULLE_HEIGTH);
@@ -112,7 +110,6 @@ public class Bullte {
             tank.die();
             this.die();
         }
-
     }
 
     public Group getGroup() {

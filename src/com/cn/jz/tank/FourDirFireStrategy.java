@@ -6,8 +6,8 @@ public class FourDirFireStrategy  implements  FireStrategy<Tank>{
         Dir[] dirs = Dir.values();
         for (Dir dir : dirs){
             int bullteX=  tank.x + Tank.TANK_WIDTH/2 - Bullte.BULLE_WIDTH/2;
-            int BullteY= tank.y + Tank.TANK_HEIGTH/2 - Bullte.BULLE_HEIGTH/2;
-            new Bullte(bullteX,BullteY,dir,tank.gm,tank.group);
+            int bullteY= tank.y + Tank.TANK_HEIGTH/2 - Bullte.BULLE_HEIGTH/2;
+            new Bullte(bullteX,bullteY,dir,tank.gm,tank.group);
         }
 
     }
